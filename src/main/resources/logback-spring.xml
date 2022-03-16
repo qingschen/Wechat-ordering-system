@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+    <!--一个小的配置项，class="",需要引号内的类进行处理-->
+    <!--默认级别是info，info以上级别默认输出，以下级别默认过滤-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--将error级别的日志过滤掉，非error级别的输出-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <!--配置日志输出格式-->
+        <encoder>
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--输出日志文件的路径，其中文件名中的%d为日期-->
+            <fileNamePattern>/var/log/tomcat/sell/info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--将日志级别设为ERROR，error及以上可以输出，以下被过滤-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <!--配置日志输出格式-->
+        <encoder>
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--输出日志文件的路径，其中文件名中的%d为时间日期-->
+            <fileNamePattern>/var/log/tomcat/sell/error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--root代表整个项目，ref中填写上面配置项的name-->
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <!--<appender-ref ref="fileInfoLog"/>-->
+        <!--<appender-ref ref="fileErrorLog"/>-->
+    </root>
+</configuration>

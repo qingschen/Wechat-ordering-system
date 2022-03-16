@@ -1,0 +1,63 @@
+spring:
+#  配置数据库连接
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+#    characterEncoding=utf-8配置，防止中文乱码
+    url: jdbc:mysql://192.168.1.11/sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.1.11
+
+#整个项目的URL前缀为/sell
+server:
+  servlet:
+    context-path: /sell
+  port: 80
+
+wechat:
+  #公众号 账号，授权
+  mpAppId: wxd898fcb01713c658
+  mpAppSecret:
+
+#  开放平台， 卖家扫码登录用
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+#  支付/商户号
+  mchId: 1483469312
+  mchKey: 7mdApPMfXddfWWbbP4DUaVYm2wjyh3v3
+#  证书路径，发起支付不需要证书，退款需要
+  keyPath: /var/h5.p12
+
+  notifyUrl: http://sellproject.nat300.top/sell/pay/notify
+
+projecturl:
+  weChatMpAuthorize: http://sellproject.nat300.top
+  weChatOpenAuthorize: http://sellproject.nat300.top
+  sell: http://sellproject.nat300.top
+
+logging:
+  level:
+#    Mapper类所在的包名
+    com.experience.dataobject.mapper: trace
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+#logging:
+#  pattern:
+#    # 输出格式为 "时间日期 - info中的信息"
+#    console: "%d - %msg%n"
+##  将日志内容输出到txt文件中，/var/log/tomcat/为文件地址,具体地址为E:\var\log\tomcat
+#  path: /var/log/tomcat
+##  file也是输出到文件，和path类似
+#  file: /var/log/tomcat/sell.log
+##  level可以指定日志级别，error、info、debug等，也可以指定特定的类的级别
+#  level:
+#    com.experience.LoggerTest: debug
