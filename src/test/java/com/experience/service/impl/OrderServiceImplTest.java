@@ -53,7 +53,7 @@ public class OrderServiceImplTest {
         orderDTO.setBuyerName("小小土");
         orderDTO.setBuyerPhone("123456");
         orderDTO.setBuyerAddress("天空公寓");
-        orderDTO.setBuyerOpenid("oTgZpwSXfUsMA3am3bLFradeWnaQ");
+        orderDTO.setBuyerOpenid("oTg");
 
         List<OrderDetail> orderDetailList = new LinkedList<>();
 

@@ -21,7 +21,7 @@ public class SellerInfoRepositoryTest {
     @Autowired
     private SellerInfoRepository sellerInfoRepository;
 
-    private String OPENID = "oTgZpwSXfUsMA3am3bLFradeWnaQ";
+    private String OPENID = "oTg";
 
 
     @Test

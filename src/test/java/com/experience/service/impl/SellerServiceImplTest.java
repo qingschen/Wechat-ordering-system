@@ -23,7 +23,7 @@ public class SellerServiceImplTest {
 
     @Test
     public void findSellerInfoByOpenid() throws Exception {
-        SellerInfo sellerInfo = sellerService.findSellerInfoByOpenid("oTgZpwSXfUsMA3am3bLFradeWnaQ");
+        SellerInfo sellerInfo = sellerService.findSellerInfoByOpenid("oTg");
         Assert.assertNotEquals(null,sellerInfo);
     }
 

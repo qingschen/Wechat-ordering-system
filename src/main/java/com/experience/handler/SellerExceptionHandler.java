@@ -39,13 +39,13 @@ public class SellerExceptionHandler {
                 .concat("https://open.weixin.qq.com/connect/qrconnect")
                 .concat("?appid=wx6ad144e54af67d87")
                 .concat("&redirect_uri=http%3A%2F%2Fsell.springboot.cn%2Fsell%2Fqr%2F")
-                .concat("oTgZpwSXfUsMA3am3bLFradeWnaQ")
+                .concat("oTg")
                 .concat("&response_type=code&scope=snsapi_login")
                 .concat("&state=http%3A%2F%2Fsellproject.nat300.top%2Fsell%2Fwechat%2FqrUserInfo");
 //        return new ModelAndView("redirect:"
 //                .concat(projectUrlConfig.getSell())
 //                .concat("/sell/seller/login")
-//                .concat("?openid=oTgZpwSXfUsMA3am3bLFradeWnaQ"));
+//                .concat("?openid=oTg"));
     }
 
 
